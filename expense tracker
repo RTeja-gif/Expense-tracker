@@ -1,0 +1,38 @@
+expenses = []
+
+def add_expense():
+    """Adds a new expense to the list."""
+    date = input("Enter date (YYYY-MM-DD): ")
+    category = input("Enter category: ")
+    amount = float(input("Enter amount: "))
+    expenses.append({"date": date, "category": category, "amount": amount})
+    print("Expense added successfully!")
+
+def view_expenses():
+    """Displays all added expenses."""
+    if not expenses:
+        print("No expenses to show.")
+    else:
+        print("-" * 30)
+        print("Date\t\tCategory\tAmount")
+        print("-" * 30)
+        for expense in expenses:
+            print(f"{expense['date']}\t{expense['category']}\t{expense['amount']}")
+        print("-" * 30)
+
+while True:
+    print("\nExpense Tracker Menu:")
+    print("1. Add Expense")
+    print("2. View Expenses")
+    print("3. Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        add_expense()
+    elif choice == "2":
+        view_expenses()
+    elif choice == "3":
+        break
+    else:
+        print("Invalid choice. Please try again.")
